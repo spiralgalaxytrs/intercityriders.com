@@ -194,7 +194,7 @@
     </a>
      
       <!-- ====== Check Vehicle Area ====== --> 
- <section id="book">
+<section id="book">
     <div class="check-vehicle-block gray-20">
         <div class="container">
             <div class="row">
@@ -233,9 +233,9 @@
                                 <div class="col-md-4">
                                     
                                     
-                                        <button class="button" type="button" onclick="calcRoute();">Submit</button>
+                                        <!--button class="button" type="button" onclick="calcRoute();">Submit</button>
                                     
-                                <!--/div>
+                                </div>
                                 <div class="col-md-4">
                                     
                                    
@@ -246,7 +246,7 @@
                                <br><br>
                                 
                                 
-                                
+                                <div id="ma" style="display: none;">  
                                 <b> <div id="output" class="result-table"></div></b>
                                 <div class="container-map" id="google-map"></div>  
                                 <div class="clearfix"></div><!-- /.clearfix -->
@@ -262,8 +262,9 @@
                                             <div class="vehicle-meta">
                                                 <div id="output1" class="meta-item">
                                                     <span> Price  :  ₹12 / Km.</span>
+                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
                                                 </div>
-                                                <button onclick="hd()" class="meta-item">select</button>
+                                                
                                             </div><!-- /.meta-left -->
                                         </div>
                                         <!-- /.vehicle-bottom-content -->
@@ -282,8 +283,9 @@
                                             <div class="vehicle-meta">
                                                 <div id="output2" class="meta-item">
                                                     <span> Price  :  ₹16 / Km.</span>
+                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
                                                 </div>
-                                                <button onclick="hd()" class="meta-item">select</button>
+                                                
                                             </div><!-- /.meta-left -->
                                         </div>
                                         <!-- /.vehicle-bottom-content -->
@@ -304,16 +306,17 @@
                                             <div class="vehicle-meta">
                                                 <div id="output3" class="meta-item">
                                                     <span> Price  :  ₹18 / Km.</span>
+                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
                                                 </div>
-                                                <button onclick="hd()" class="meta-item">select</button>
+                                                
                                             </div><!-- /.meta-left -->
                                         </div>
                                         <!-- /.vehicle-bottom-content -->
                                     </div><!-- /.vehicle-content -->
                                 </div><!-- /.col-md-3 --> 
                                 
-
-                                 <div id="ma" style="display: none;">
+ </div>
+                               
                                     <div class="clearfix"></div>
                                     <div class="col-md-4">
                                         <label>Name</label>
@@ -388,11 +391,11 @@
                         
                         <div class="clearfix"></div><!-- /.clearfix -->
                         <center><div class="col-md-4">
-                            <div class="row">                            
+                            <div class="row" id="ma1">                            
                                 <!--div class="advanced-search">
                                     <a href="#" class="advanced-search-btn"><i class="fa fa-search"></i>Advanced search</a>
                                 </div-->
-                                        <button type="submit" style="background: yellow;" class="button" class="pick-location form-controller"  onclick="testVariable()">Find car</button>
+                                        <button type="submit" style="background: yellow;" class="button" class="pick-location form-controller"  onclick="calcRoute()">Find car</button>
                             </div><!-- /.row -->
                         </div></div></center><!-- /.check-vehicle-footer -->
                     </form><!-- /.advance_search_query -->
@@ -403,65 +406,6 @@
 </div>
 </div>
 </div>
-
-	
-<script>
-    function testVariable() {
-        var strText = document.getElementById("name").value;
-        var strText1 = document.getElementById("p").value;
-        var strText2 = document.getElementById("location-1").value;
-        var strText3 = document.getElementById("location-2").value;
-        var strText4 = document.getElementById("pickupdate").value;
-        var strText6 = document.getElementById("pickuptime").value;
-        var strText7 = document.getElementById("cars").value;
-        var strText8 = document.getElementById("ser").value;
-        var rate;
-        if((strText7=="Sedan") && (strText8=="One-Way"))
-        {rate=sedano;}
-        else if((strText7=="Sedan") && (strText8="Round"))
-        {rate=sedanr;}
-        else if((strText7=="SUV") && (strText8=="One-Way"))
-        {rate=suvo;}
-        else if((strText7=="SUV") && (strText8=="Round"))
-        {rate=suvr;}
-        else if(strText7=="Traveller")
-        {rate=traveller;}
-        var result = 'Customer Name:  ' + strText + '%0APhone Number: ' + strText1 +'%0APickup Location: ' + strText2+  '%0ADrop Location: ' + strText3 + '%0APickup Date: ' + strText4 + '%0APickup Time: ' + strText6 +'%0AService: ' + strText8 + '%0ACars: ' + strText7+"%0APrice:"+rate;
-        var finalMsg = encodeURI(result);
-        document.getElementById("bookingForm").addEventListener("submit", (e) => {
-            e.preventDefault();
-            if (strText == "" || strText1 == "" || strText2 == "" || strText3 == "" || strText4 == "" || strText7 == "" || strText6 == "") {
-                console.log('error');
-                alert("Verfy the Phone Number");
-            } else {
-                const request = new XMLHttpRequest();
-                //const url = 'https://api.telegram.org/bot1621135308:AAH5pmDfQPgTgcGsH8FXm8cz4JLULdM8by4/sendMessage?chat_id=-501275331&text='+ result;
-                const url = 'https://api.telegram.org/bot1277549383:AAGnKv4XGhOAG08Qg7ewe1mLVyXFiISPJ8o/sendMessage?chat_id=-1001479118068&text='+result;
-                request.open("post", url);
-                request.send();
-                window.open('#', '_self'); 
-                /*const url1 = "https://www.fast2sms.com/dev/bulk?authorization=tXGFnAr4LNYZM8Q9jwPVHxWdvs6eahl2qk5of7SzpRbOUEumITTnoiOFHqdCLhzJPgaxer2mpZ8UNEyf&sender_id=FSTSMS&message=https://onewaytaxitamilnadu.in%0AContact No: 9500620414%0AHello "+strText+",%0AThank you for Booking with One Way Taxi Tamilnadu.%0AYour Booking has been Confirmed.%0ABooking Details%0A"+result+"%0AFor your kind information toll and state taxes will be paid on your own.%0AHope you'll enjoy the ride&language=english&route=p&numbers="+strText1;
-                
-                request.open("post", url1);
-                request.send();
-                window.open('#', '_self'); */
-                window.open('https://intercityriders.com/bookingSuccess.html', '_blank');
-  
-            var wnd = window.open("https://www.fast2sms.com/dev/bulk?authorization=tXGFnAr4LNYZM8Q9jwPVHxWdvs6eahl2qk5of7SzpRbOUEumITTnoiOFHqdCLhzJPgaxer2mpZ8UNEyf&sender_id=FSTSMS&message=https://onewaytaxitamilnadu.in%0AContact No: 9500620414%0AHello "+rate+",%0AThank you for Booking with One Way Taxi Tamilnadu.%0AYour "+strText3+" Booking has been Confirmed on "+strText4+".&language=english&route=p&numbers="+strText1);
-                      
-                          if(wnd){
-                                  setTimeout(function () { wnd.close();}, 2000);
-                          }
-                         
-            }
-
-        });
-
-    }
-    function hd(){
-        var y = document.getElementById("ma");
-        y.style.display = "block";}
-</script>
 
 
 <script src="https://www.gstatic.com/firebasejs/7.13.1/firebase.js"></script>
@@ -474,77 +418,15 @@
         </div><!-- /.container -->
     
     
-        <script>
-            document.getElementById("myBtn").disabled = true;
-            var a;
-             var b;
-             var c;
-             var p;
-           function sent() {
-             p=document.getElementById("p").value;
-             c = Math.floor((Math.random()*1000000)+1);
-             if(p!="")
-             {
-               var elem = document.getElementById("ms");
-               if (elem.value=="Edit") {elem.value = "Sent";document.getElementById("p").readOnly = false;}
-               else
-               { elem.value = "Edit";
-           
-               document.getElementById("p").readOnly = true;
-               document.getElementById("name").readOnly = true;
-             alert("OTP Sent");
-            var otp =window.open("https://www.fast2sms.com/dev/bulk?authorization=tXGFnAr4LNYZM8Q9jwPVHxWdvs6eahl2qk5of7SzpRbOUEumITTnoiOFHqdCLhzJPgaxer2mpZ8UNEyf&sender_id=FSTSMS&message= %0A..%0A Thanking For Registering%0AYour OTP : "+c+"%0A For CAB Booking "+"&language=english&route=p&numbers="+p);
-             }
-             }
-             else
-             {
-               alert("Enter Phone Number");  
-             }
-            if(otp){
-                       setTimeout(function () { otp.close();}, 2000);
-               }
-              
-            }
-            function view() 
-            
-             {
-             b=document.getElementById("b").value;
-             if(b!=""){
-             if(c==b )
-               {
-                   var y = document.getElementById("ms");
-               y.style.display = "none";
-               var y = document.getElementById("b");
-               y.style.display = "none";
-               var y = document.getElementById("mv");
-               y.style.display = "none";
-               var y = document.getElementById("hd");
-               y.style.display = "none";
-               var y = document.getElementById("ve");
-               y.style.display = "block";
-               var y = document.getElementById("ma");
-               y.style.display = "block";
-               document.getElementById("myBtn").disabled = false;
-                   alert("verify");
-               }
-             else
-               {
-                   alert("not");
-               }
-             }
-             else
-             {
-               alert("Enter OTP");  
-             }
-           }
-          
-           </script>
-           
+       
                
          
-             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNKpr4auBLgBgiOXJ41UUWTB58MZa6p3E&libraries=places"></script>
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-           <script src="assets/js/main.js"></script>
+     
+         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNKpr4auBLgBgiOXJ41UUWTB58MZa6p3E&libraries=places"></script>
+       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       <script src="assets/js/main.js"></script>
+ <script src="assets/js/fast2.js"></script>
+    
     
         <!-- All The JS Files
         ================================================== --> 
