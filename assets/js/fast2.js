@@ -218,7 +218,7 @@ function clearRoute(){
 }
 
 // Create autocomplete objects for all inputs
-
+/*
 var options = {
     types: ['(india)']
 }
@@ -229,3 +229,14 @@ var autocomplete1 = new google.maps.places.Autocomplete(input1);
 
 var input2 = document.getElementById("location-2");
 var autocomplete2 = new google.maps.places.Autocomplete(input2);
+*/
+var options = {
+    componentRestrictions: { country: "ind" }
+}
+
+
+var input1 = document.getElementById("location-1");
+var autocomplete1 = new google.maps.places.Autocomplete(input1, options); 
+
+var input2 = document.getElementById("location-2");
+var autocomplete2 = new google.maps.places.Autocomplete(input2, options);
