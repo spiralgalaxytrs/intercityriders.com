@@ -3,7 +3,7 @@ var sedanr;
 var suvo; 
 var suvr;
 
-function testVariable() {
+function calcRoute() {
 	
     var strText = document.getElementById("name").value;
     var strText1 = document.getElementById("p").value;
@@ -144,7 +144,7 @@ var suvo;
 var suvr;
 
 // Define calcRoute function
-function calcRoute() {
+function calcRoute1() {
      var y = document.getElementById("ma");
         y.style.display = "none";
      var z = document.getElementById("ma1");
