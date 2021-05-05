@@ -144,90 +144,27 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
 					    <div class="vehicle-meta">
                                                 <div  class="meta-item">
 							<h1 id="n"> Karthik</h1>
-						    	<h1 id="car">SUV 16 / Km.</h1>
+						    	<h1 id="car">SUV</h1>
 							<h1 id="ser">One-Way</h1>
-                                                   	<h1 id="l1"> Coimbatore</h1>
-							<h1 id="l2"> Chennai</h1>
-							<input type="button" value="check Fair" onclick="calcRoute1()">
-                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
-                                                </div>
-                                                
+              						<h1 id="location-1"> Coimbatore, Tamil Nadu, India</h1>
+							<h1 id="location-2"> Madurai, TAMIL NADU, INDIA</h1>
+							
+							<div class="row">
+							     <button class="button" type="button" onclick="calcRoute();">Submit</button>
+							</div>      
+            
+            <!-- Stats table -->                
+           						<div id="output" class="result-table"></div>
+                                                    	     <h6 class="meta-item">* Toll/State taxes are excluded</h6>
+                        	                        </div>
                                             </div><!-- /.meta-left -->
+						 <div class="container-map" id="google-map"></div>   
                                         </div>
                                         <!-- /.vehicle-bottom-content -->
                                     </div><!-- /.vehicle-content -->
                                 </div><!-- /.col-md-3 -->  
 			    
-                                <div id="ma" style="display: none;">  
-                                <b> <div id="output" class="result-table"></div></b>
-                                <div class="container-map" id="google-map"></div>  
-                                <div class="clearfix"></div><!-- /.clearfix -->
-                                <div class="col-md-4 col-sm-7">
-                                    <div class="vehicle-content theme-yellow">
-                                        <div class="vehicle-thumbnail">
-                                            <a href="booking.html">
-                                                <img src="assets/images/cars/car-9.png" alt="car-item" />
-                                            </a>
-                                        </div><!-- /.vehicle-thumbnail -->
-                                        <div class="vehicle-bottom-content">
-                                           <h2 class="vehicle-title"><a href="#">Sedan</a></h2>
-                                            <div class="vehicle-meta">
-                                                <div id="output1" class="meta-item">
-                                                    <span> Price  :  ₹12 / Km.</span>
-                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
-                                                </div>
-                                                
-                                            </div><!-- /.meta-left -->
-                                        </div>
-                                        <!-- /.vehicle-bottom-content -->
-                                    </div><!-- /.vehicle-content -->
-                                </div><!-- /.col-md-3 -->  
-            
-                                <div class="col-md-4 col-sm-7">
-                                    <div class="vehicle-content theme-yellow">
-                                        <div class="vehicle-thumbnail">
-                                            <a href="booking.html">
-                                                <img src="assets/images/cars/car-6.png" alt="car-item" />
-                                            </a>
-                                        </div><!-- /.vehicle-thumbnail -->
-                                        <div class="vehicle-bottom-content">
-                                           <h2 class="vehicle-title"><a href="#">SUV</a></h2>
-                                            <div class="vehicle-meta">
-                                                <div id="output2" class="meta-item">
-                                                    <span> Price  :  ₹16 / Km.</span>
-                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
-                                                </div>
-                                                
-                                            </div><!-- /.meta-left -->
-                                        </div>
-                                        <!-- /.vehicle-bottom-content -->
-                                    </div><!-- /.vehicle-content -->
-                                </div><!-- /.col-md-3 -->  
-            
-            
-            
-                                <div class="col-md-4 col-sm-7">
-                                    <div class="vehicle-content theme-yellow">
-                                        <div class="vehicle-thumbnail">
-                                            <a href="booking.html">
-                                                <img src="assets/images/cars/car-8.png" alt="car-item" />
-                                            </a>
-                                        </div><!-- /.vehicle-thumbnail -->
-                                        <div class="vehicle-bottom-content">
-                                           <h2 class="vehicle-title"><a href="#">Traveller</a></h2>
-                                            <div class="vehicle-meta">
-                                                <div id="output3" class="meta-item">
-                                                    <span> Price  :  ₹18 / Km.</span>
-                                                    <h6 class="meta-item">* Toll/State taxes are excluded</h6>
-                                                </div>
-                                                
-                                            </div><!-- /.meta-left -->
-                                        </div>
-                                        <!-- /.vehicle-bottom-content -->
-                                    </div><!-- /.vehicle-content -->
-                                </div><!-- /.col-md-3 --> 
                                 
- </div>
                     <div class="text-content">
      <br>
      <br>
@@ -392,11 +329,11 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
 
     <script>
     console.log(localStorage.getItem("result"));
-    document.getElementById("l1").innerHTML =localStorage.getItem("result1");
-    document.getElementById("l2").innerHTML =localStorage.getItem("result2");
+    document.getElementById("location-1").innerHTML =localStorage.getItem("result1");
+    document.getElementById("location-2").innerHTML =localStorage.getItem("result2");
     document.getElementById("n").innerHTML =localStorage.getItem("result");
     document.getElementById("car").innerHTML =localStorage.getItem("result4");
-	    document.getElementById("ser").innerHTML =localStorage.getItem("result3");
+    document.getElementById("ser").innerHTML =localStorage.getItem("result3");
     </script>   
        
     <!-- All The JS Files
@@ -404,8 +341,94 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
     <script src="assets/js/plugins.min.js"></script>
     <script src="assets/js/carrent.min.js"></script> <!-- main-js -->
          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBNKpr4auBLgBgiOXJ41UUWTB58MZa6p3E&libraries=places"></script>
-       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-       <script src="assets/js/main.js"></script>
- <script src="assets/js/fast2.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/main.js"></script>
+<script>
+  var myLatLng = { lat: 0.0, lng: 0.0 };
+var mapOptions = {
+    center: myLatLng,
+    zoom: 1,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+};
+
+// Hide result box
+document.getElementById("output").style.display = "none";
+
+// Create/Init map
+var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+
+// Create a DirectionsService object to use the route method and get a result for our request
+var directionsService = new google.maps.DirectionsService();
+
+// Create a DirectionsRenderer object which we will use to display the route
+var directionsDisplay = new google.maps.DirectionsRenderer();
+
+// Bind the DirectionsRenderer to the map
+directionsDisplay.setMap(map);
+
+
+// Define calcRoute function
+function calcRoute() {
+    //create request
+    var request = {
+        origin: document.getElementById("location-1").textContent,
+        destination: document.getElementById("location-2").textContent,
+        travelMode: google.maps.TravelMode.DRIVING,
+        unitSystem: google.maps.UnitSystem.METRIC
+    }
+
+    // Routing
+    directionsService.route(request, function (result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+
+            //Get distance and time            
+            var d=result.routes[0].legs[0].distance.value/1000;
+            var n = d.toFixed(0);
+           
+          
+           var sedano=((n*12)+350)+" - "+((n*12)+500);
+           var sedanr=2*((n*12)+350)+" - "+2*((n*12)+500);
+           var suvo=((n*16)+350)+" - "+((n*16)+500);
+           var suvr=2*((n*16)+350)+" - "+2*((n*16)+500);
+           var traveller=(2*((n*18)+350))+" - "+(2*((n*18)+500));
+
+          var rate;
+          var strText7 = document.getElementById("car").textContent;
+          var strText8 = document.getElementById("ser").textContent;
+          
+          
+    if((strText7=="Sedan") && (strText8=="One-Way"))
+    {rate=sedano;}
+    else if((strText7=="Sedan") && (strText8="Round"))
+    {rate=sedanr;}
+    else if((strText7=="SUV") && (strText8=="One-Way"))
+    {rate=suvo;}
+    else if((strText7=="SUV") && (strText8=="Round"))
+    {rate=suvr;}
+    else if(strText7=="Traveller")
+    {rate=traveller;}
+    else
+    {rate="Not Avalible";}
+          
+            $("#output").html("<div class='result-table'> Driving distance: " + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text +
+".<br />Rate: " + rate +".</div>");
+            document.getElementById("output").style.display = "block";
+
+            //display route
+            directionsDisplay.setDirections(result);
+        } else {
+            //delete route from map
+            directionsDisplay.setDirections({ routes: [] });
+            //center map in London
+            map.setCenter(myLatLng);
+
+            //Show error message           
+           
+            alert("Can't find road! Please try again!");
+        }
+    });
+
+}
+</script>
 
 <a href="#top" id="scroll-top" class="topbutton btn-hide"><span class="glyphicon glyphicon-menu-up"></span></a><a href="#top" id="scroll-top" class="topbutton btn-hide"><span class="glyphicon glyphicon-menu-up"></span></a></body></html>
