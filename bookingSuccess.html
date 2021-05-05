@@ -145,11 +145,11 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
                                         <div class="vehicle-bottom-content">
 					    <div class="vehicle-meta">
                                                 <div  class="meta-item">
-							<h1 id="n"><i class="fa fa-user" style="font-size:36px"></i><span> Karthik<span></h1>
-						    	<h1 id="car"><i class='fa fa-car' style='font-size:36px'></i><span> SUV<span>/h1>
-							<h1 id="ser"><i class='fa fa-road' style='font-size:36px'></i><span> One-Way<span></h1>
-              						<h1 id="location-1"><i class='fa fa-map-marker' style='font-size:36px;color:red'> <span> Coimbatore, Tamil Nadu, India<span></h1>
-							<h1 id="location-2"><i class='fa fa-map-marker ' style='font-size:36px;color:green'><span> Madurai, TAMIL NADU, INDIA<span> </h1>
+							<h1 id="n"><i class="fa fa-user" style="font-size:36px"></i><span> Karthik</span></h1>
+						    	<h1 ><i class='fa fa-car' style='font-size:36px'></i><span id="car"> SUV</span>/h1>
+							<h1 ><i class='fa fa-road' style='font-size:36px'></i><span id="ser"> One-Way</span></h1>
+              						<h1 ><i class='fa fa-map-marker' style='font-size:36px;color:red'> <span id="location-1"> Coimbatore, Tamil Nadu, India</span></h1>
+							<h1 ><i class='fa fa-map-marker ' style='font-size:36px;color:green'><span id="location-2"> Madurai, TAMIL NADU, INDIA</span> </h1>
 							
 							<div class="row">
 							     <button class="button" id="myBtn" type="button" onclick="calcRoute();">Submit</button>
@@ -373,8 +373,8 @@ directionsDisplay.setMap(map);
 function calcRoute() {
     //create request
     var request = {
-        origin: document.getElementById("location-1").textContent,
-        destination: document.getElementById("location-2").textContent,
+        origin: localStorage.getItem("result1"),
+        destination: localStorage.getItem("result2"),
         travelMode: google.maps.TravelMode.DRIVING,
         unitSystem: google.maps.UnitSystem.METRIC
     }
@@ -395,8 +395,8 @@ function calcRoute() {
            var traveller=(2*((n*18)+350))+" - "+(2*((n*18)+500));
 
           var rate;
-	  var strText7 = document.getElementById("ser").textContent;
-          var strText8 = document.getElementById("car").textContent;
+	  var strText7 = localStorage.getItem("result3");
+          var strText8 = localStorage.getItem("result4");
           
           
     if((strText7=="Sedan") && (strText8=="One-Way"))
