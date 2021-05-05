@@ -413,8 +413,8 @@ function calcRoute() {
     {rate="Not Avalible";}
         var a = document.getElementById("myBtn");
          a.style.display = "none";  
-            $("#output").html("<div class='meta-item'> <i class='material-icons' style='font-size:36px'>transfer_within_a_station</i>" + result.routes[0].legs[0].distance.text + ".<br /> <i class='fa fa-clock-o' style='font-size:36px'></i>" + result.routes[0].legs[0].duration.text +
-".<br /><i class='fa fa-inr' style='font-size:36px'></i> " + rate +".</div>");
+            $("#output").html("<div class='meta-item'><h3> <i class='material-icons' style='font-size:36px'>transfer_within_a_station</i>" + result.routes[0].legs[0].distance.text + ".<br /> <i class='fa fa-clock-o' style='font-size:36px'></i>" + result.routes[0].legs[0].duration.text +
+".<br /><i class='fa fa-inr' style='font-size:36px'></i> " + rate +".</h3></div>");
             document.getElementById("output").style.display = "block";
 
             //display route
