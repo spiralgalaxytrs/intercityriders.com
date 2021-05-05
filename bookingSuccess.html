@@ -145,7 +145,7 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
                                         <div class="vehicle-bottom-content">
 					    <div class="vehicle-meta">
                                                 <div  class="meta-item">
-							<h1 id="n"><i class="fa fa-user" style="font-size:36px"></i><span> Karthik</span></h1>
+							<h1 ><i class="fa fa-user" style="font-size:36px"></i><span id="n"> Karthik</span></h1>
 						    	<h1 ><i class='fa fa-car' style='font-size:36px'></i><span id="car"> SUV</span></h1>
 							<h1 ><i class='fa fa-road' style='font-size:36px'></i><span id="ser"> One-Way</span></h1>
               						<h1 ><i class='fa fa-map-marker' style='font-size:36px;color:red'></i><span id="location-1"> Coimbatore, Tamil Nadu, India</span></h1>
@@ -413,8 +413,8 @@ function calcRoute() {
     {rate="Not Avalible";}
         var a = document.getElementById("myBtn");
          a.style.display = "none";  
-            $("#output").html("<div class='meta-item'><h1> <i class='material-icons' style='font-size:36px'>transfer_within_a_station</i>" + result.routes[0].legs[0].distance.text + ".<br /> <i class='fa fa-clock-o' style='font-size:36px'></i>" + result.routes[0].legs[0].duration.text +
-".<br /><i class='fa fa-inr' style='font-size:36px'></i> " + rate +".</h1></div>");
+            $("#output").html("<div class='meta-item'> <i class='material-icons' style='font-size:36px'>transfer_within_a_station</i>" + result.routes[0].legs[0].distance.text + ".<br /> <i class='fa fa-clock-o' style='font-size:36px'></i>" + result.routes[0].legs[0].duration.text +
+".<br /><i class='fa fa-inr' style='font-size:36px'></i> " + rate +".</div>");
             document.getElementById("output").style.display = "block";
 
             //display route
