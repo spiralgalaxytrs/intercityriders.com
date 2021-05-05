@@ -10,7 +10,9 @@
     <meta name="description" content="InterCity Riders">
     <meta name="keywords" content="InterCity Riders">
     <meta name="author" content="The Reciprocal Solutions">
-
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Titles
     ================================================== -->
     <title>Booking Success</title>
@@ -143,14 +145,14 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
                                         <div class="vehicle-bottom-content">
 					    <div class="vehicle-meta">
                                                 <div  class="meta-item">
-							<h1 id="n"> Karthik</h1>
-						    	<h1 id="car">SUV</h1>
-							<h1 id="ser">One-Way</h1>
-              						<h1 id="location-1"> Coimbatore, Tamil Nadu, India</h1>
-							<h1 id="location-2"> Madurai, TAMIL NADU, INDIA</h1>
+							<h1 id="n"><i class="fa fa-user" style="font-size:36px"></i><span> Karthik<span></h1>
+						    	<h1 id="car"><i class='fa fa-car' style='font-size:36px'></i><span> SUV<span>/h1>
+							<h1 id="ser"><i class='fa fa-road' style='font-size:36px'></i><span> One-Way<span></h1>
+              						<h1 id="location-1"><i class='fa fa-map-marker' style='font-size:36px;color:red'> <span> Coimbatore, Tamil Nadu, India<span></h1>
+							<h1 id="location-2"><i class='fa fa-map-marker ' style='font-size:36px;color:green'><span> Madurai, TAMIL NADU, INDIA<span> </h1>
 							
 							<div class="row">
-							     <button class="button" type="button" onclick="calcRoute();">Submit</button>
+							     <button class="button" id="myBtn" type="button" onclick="calcRoute();">Submit</button>
 							</div>      
             
             <!-- Stats table -->                
@@ -409,9 +411,10 @@ function calcRoute() {
     {rate=traveller;}
     else
     {rate="Not Avalible";}
-          
-            $("#output").html("<div class='result-table'> Driving distance: " + result.routes[0].legs[0].distance.text + ".<br />Duration: " + result.routes[0].legs[0].duration.text +
-".<br />Rate: " + rate +".</div>");
+        var a = document.getElementById("myBtn");
+         a.style.display = "none";  
+            $("#output").html("<div class='meta-item'><h1> <i class='material-icons' style='font-size:36px'>transfer_within_a_station</i>" + result.routes[0].legs[0].distance.text + ".<br /> <i class='fa fa-clock-o' style='font-size:36px'></i>" + result.routes[0].legs[0].duration.text +
+".<br /><i class='fa fa-inr' style='font-size:36px'></i> " + rate +".</h1></div>");
             document.getElementById("output").style.display = "block";
 
             //display route
