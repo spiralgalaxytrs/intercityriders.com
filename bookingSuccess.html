@@ -143,8 +143,12 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
                                         <div class="vehicle-bottom-content">
 					    <div class="vehicle-meta">
                                                 <div  class="meta-item">
-						    <h1 id="car">SUV</h1>
-                                                    <h1 id="list"> 16 / Km.</h1>
+							<h1 id="n"> Karthik</h1>
+						    	<h1 id="car">SUV 16 / Km.</h1>
+							<h1 id="ser">One-Way</h1>
+                                                   	<h1 id="l1"> Coimbatore</h1>
+							<h1 id="l2"> Chennai</h1>
+							
                                                     <h6 class="meta-item">* Toll/State taxes are excluded</h6>
                                                 </div>
                                                 
@@ -388,8 +392,11 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
 
     <script>
     console.log(localStorage.getItem("result"));
-    document.getElementById("list").innerHTML ="₹"+localStorage.getItem("result");
-    document.getElementById("car").innerHTML =localStorage.getItem("result1");
+    document.getElementById("l1").innerHTML ="₹"+localStorage.getItem("result1");
+    document.getElementById("l1").innerHTML ="₹"+localStorage.getItem("result2");
+    document.getElementById("n").innerHTML =localStorage.getItem("result");
+    document.getElementById("car").innerHTML =localStorage.getItem("result4");
+	    document.getElementById("ser").innerHTML =localStorage.getItem("result3");
     </script>   
        
     <!-- All The JS Files
