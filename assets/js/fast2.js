@@ -28,7 +28,7 @@ function calcRoute() {
     {rate=suvr;}
     else if(strText7=="Traveller")
     {rate=traveller;}
-
+console.log("read successful");
     var result = 'Customer Name:  ' + strText + '%0APhone Number: ' + strText1 +'%0APickup Location: ' + strText2+  '%0ADrop Location: ' + strText3 + '%0APickup Date: ' + strText4 + '%0APickup Time: ' + strText6 +'%0AService: ' + strText8 + '%0ACars: ' + strText7+"%0APrice:"+rate;
 
 var finalMsg = encodeURI(result);
@@ -43,11 +43,12 @@ if(strText==""||strText1==""||strText2==""||strText3==""||strText4==""||strText6
 		const url = 'https://api.telegram.org/bot1277549383:AAGnKv4XGhOAG08Qg7ewe1mLVyXFiISPJ8o/sendMessage?chat_id=-1001479118068&text='+result;
         request.open("post", url);
         request.send();
+		console.log("Sent Telegram successfully");
         fetch("https://www.fast2sms.com/dev/bulk?authorization=tXGFnAr4LNYZM8Q9jwPVHxWdvs6eahl2qk5of7SzpRbOUEumITTnoiOFHqdCLhzJPgaxer2mpZ8UNEyf&sender_id=FSTSMS&message="+Clink+"/%0AContact No: "+CPh+"%0AHello "+strText+",%0AThank you for Booking with "+Cname+".Your "+strText2+" Booking has been Confirmed on "+strText4+".&language=english&route=p&numbers="+strText1)
 			.then(response=>{
 			if(response.status==200)
 			{
-				console.log("red");
+				console.log("Sent Message successfully");
 				
 				localStorage.setItem("result", strText);
 				localStorage.setItem("result1", strText2);
