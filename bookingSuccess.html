@@ -158,6 +158,7 @@ font-family: 'Poppins', sans-serif;">Booking Success!</h2>
             <!-- Stats table -->                
            						<div id="output" class="result-table"></div>
                                                     	     <h6 class="meta-item">* Toll/State taxes are excluded</h6>
+							<h6 class="meta-item">* Minimum 130 KM</h6>
                         	                        </div>
                                             </div><!-- /.meta-left -->
 						 <div class="container-map" id="google-map"></div>   
@@ -387,12 +388,23 @@ function calcRoute() {
             var d=result.routes[0].legs[0].distance.value/1000;
             var n = d.toFixed(0);
            
-          
+          if(n<=130)
+	  {
+		  n=130;
            var sedano=((n*12)+350)+" - "+((n*12)+500);
            var sedanr=2*((n*12)+350)+" - "+2*((n*12)+500);
            var suvo=((n*16)+350)+" - "+((n*16)+500);
            var suvr=2*((n*16)+350)+" - "+2*((n*16)+500);
            var traveller=(2*((n*18)+350))+" - "+(2*((n*18)+500));
+	  }
+	else
+	{
+	   var sedano=((n*12)+350)+" - "+((n*12)+500);
+           var sedanr=2*((n*12)+350)+" - "+2*((n*12)+500);
+           var suvo=((n*16)+350)+" - "+((n*16)+500);
+           var suvr=2*((n*16)+350)+" - "+2*((n*16)+500);
+           var traveller=(2*((n*18)+350))+" - "+(2*((n*18)+500));
+	}
 
           var rate;
 	  var strText7 = localStorage.getItem("result3");
