@@ -4,11 +4,7 @@ var suvo;
 var suvr;
 
 function calcRoute() {
-	localStorage.removeItem("result");
-				localStorage.removeItem("result1");
-				localStorage.removeItem("result2");
-				localStorage.removeItem("result3");
-				localStorage.removeItem("result4");
+	
     var strText = document.getElementById("name").value;
     var strText1 = document.getElementById("p").value;
     var strText2 = document.getElementById("location-1").value;
