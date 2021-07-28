@@ -1,5 +1,5 @@
   var firebaseConfig = {
-    apiKey: "AIzaSyDUV-KSDEb3gufrMQbWIDUk44n1J8eMawY",
+    apiKey: "AIzaSyCrVud8x3PFL-jig7HpNaw7hXZbo0rl1jo",
     authDomain: "intercityrider.firebaseapp.com",
     databaseURL: "https://intercityrider.firebaseio.com",
     projectId: "intercityrider",
