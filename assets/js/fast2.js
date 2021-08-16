@@ -46,7 +46,7 @@ if(strText==""||strText1==""||strText2==""||strText3==""||strText4==""||strText6
         request.open("post", url);
         request.send();
 		console.log("Sent Telegram successfully");
-		}
+		
         fetch("https://www.fast2sms.com/dev/bulk?authorization=tXGFnAr4LNYZM8Q9jwPVHxWdvs6eahl2qk5of7SzpRbOUEumITTnoiOFHqdCLhzJPgaxer2mpZ8UNEyf&sender_id=FSTSMS&message="+Clink+"/%0AContact No: "+CPh+"%0AHello "+strText+",%0AThank you for Booking with "+Cname+".Your "+strText2+" Booking has been Confirmed on "+strText4+".&language=english&route=p&numbers="+strText1)
 			.then(response=>{
 			if(response.status==200)
@@ -61,7 +61,8 @@ if(strText==""||strText1==""||strText2==""||strText3==""||strText4==""||strText6
 				document.getElementById("bookingForm").reset();
 				window.location.href = "bookingSuccess.html";
 			}
-		})    			
+		})    	
+		}
         }
 
 });
